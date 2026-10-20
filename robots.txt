@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cipoy404.github.io/sdn-labuhan-bua/sitemap.xml
