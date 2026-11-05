@@ -14,7 +14,7 @@ https://sdn-labuhan-bua-50203254.web.app/
 
 - Profil dan identitas sekolah terverifikasi
 - Sambutan kepala sekolah
-- Program dan galeri dokumentasi sekolah
+- Program dan galeri dokumentasi sekolah, termasuk foto publik dari Facebook resmi
 - Tautan dokumen publik terkait SD Negeri Labuhan Bua
 - Tombol WhatsApp Support
 - Tampilan responsif, metadata SEO, dan data terstruktur School

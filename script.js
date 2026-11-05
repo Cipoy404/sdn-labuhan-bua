@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   if('IntersectionObserver' in window){const navObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${entry.target.id}`))}}),{rootMargin:'-35% 0px -60%',threshold:0});sections.forEach(section=>navObserver.observe(section))}
   document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
   const dialog=document.querySelector('.lightbox');const dialogImage=dialog?.querySelector('img');const dialogText=dialog?.querySelector('p');const dialogClose=dialog?.querySelector('button');
-  document.querySelectorAll('.gallery-card').forEach(card=>card.addEventListener('click',()=>{const image=card.querySelector('img');dialogImage.src=image.src;dialogImage.alt=image.alt;dialogText.textContent=card.dataset.caption||image.alt;dialog.showModal()}));
+  document.querySelectorAll('.gallery-card,.social-photo').forEach(card=>card.addEventListener('click',()=>{const image=card.querySelector('img');dialogImage.src=image.src;dialogImage.alt=image.alt;dialogText.textContent=card.dataset.caption||image.alt;dialog.showModal()}));
   dialogClose?.addEventListener('click',()=>dialog.close());dialog?.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
 });
 
