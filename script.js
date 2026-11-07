@@ -12,13 +12,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     ...Array.from({length:16},(_,i)=>({src:`images/archive/upacara/upacara-${String(i+1).padStart(2,'0')}.jpg`,category:'upacara siswa',label:'Upacara Sumpah Pemuda',caption:`Rangkaian Upacara Sumpah Pemuda SD Negeri Labuhan Bua — foto ${i+1}`})),
     ...Array.from({length:10},(_,i)=>({src:`images/archive/kombel/kombel-${String(i+1).padStart(2,'0')}.jpg`,category:'guru',label:'Kombel SADU SEPELABU',caption:`Kegiatan komunitas belajar guru “SADU SEPELABU” — foto ${i+1}`})),
     ...Array.from({length:16},(_,i)=>({src:`images/archive/imtaq/imtaq-${String(i+1).padStart(2,'0')}.jpg`,category:'imtaq siswa guru',label:'Kegiatan IMTAQ',caption:`Kegiatan IMTAQ bersama siswa dan guru — foto ${i+1}`})),
+    ...Array.from({length:8},(_,i)=>({src:`images/archive/tambahan/${['hari-guru-01','hari-guru-02','hari-guru-03','penampilan-guru','pgri-01','pgri-02','pgri-03','pgri-04'][i]}.jpg`,category:'guru siswa budaya',label:i<3?'Hari Guru & PGRI':'Kegiatan warga sekolah',caption:`Dokumentasi kegiatan guru dan siswa — foto ${i+1}`})),
+    {src:'images/video-posters/mpls-awal.jpg',category:'siswa-baru siswa',label:'MPLS siswa baru',caption:'Pengenalan kebiasaan hidup bersih kepada siswa baru Kelas 1'},
+    {src:'images/video-posters/mpls-hari-terakhir.jpg',category:'siswa-baru siswa',label:'MPLS Kelas 1',caption:'Penyusunan kesepakatan kelas bersama siswa baru'},
     {src:'images/archive/poster/batik-nasional.jpg',category:'budaya',label:'Hari Batik Nasional',caption:'Poster peringatan Hari Batik Nasional'},
     {src:'images/archive/poster/kesaktian-pancasila.jpg',category:'upacara',label:'Kesaktian Pancasila',caption:'Poster peringatan Hari Kesaktian Pancasila'},
     {src:'images/archive/poster/kepala-sekolah.jpg',category:'guru',label:'Kepala sekolah',caption:'Adi Putra Jaya, S.Pd., Kepala SD Negeri Labuhan Bua'}
   ];
   archives.forEach(item=>{
     const button=document.createElement('button');
-    button.className='social-photo archive-photo';button.type='button';button.dataset.category=item.category;button.dataset.caption=`${item.caption} — sumber: Facebook sekolah`;
+    button.className='social-photo archive-photo';button.type='button';button.dataset.category=item.category;button.dataset.caption=item.caption;
     const image=document.createElement('img');image.src=item.src;image.alt=item.caption;image.loading='lazy';
     const label=document.createElement('span');label.textContent=item.label;button.append(image,label);gallery?.append(button);
   });
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   document.querySelector('#registration-form')?.addEventListener('submit',event=>{
     event.preventDefault();const data=new FormData(event.currentTarget);
-    const message=['Halo, saya ingin melakukan pra-pendaftaran SPMB SD Negeri Labuhan Bua.','',`Nama calon murid: ${data.get('student')}`,`Nama orang tua/wali: ${data.get('parent')}`,`Asal TK/RA: ${data.get('origin')||'-'}`,`Dusun/desa: ${data.get('address')}`,`Nomor WhatsApp wali: ${data.get('phone')}`,'','Mohon informasi jadwal dan berkas yang perlu dibawa.'].join('\n');
-    window.open(`https://wa.me/6289531541524?text=${encodeURIComponent(message)}`,'_blank','noopener,noreferrer');
+    const message=['Yth. Pengelola SPMB SD Negeri Labuhan Bua,','',`Nama calon murid: ${data.get('student')}`,`Nama orang tua/wali: ${data.get('parent')}`,`Asal TK/RA: ${data.get('origin')||'-'}`,`Dusun/desa: ${data.get('address')}`,`Nomor yang dapat dihubungi: ${data.get('phone')}`,'','Mohon informasi jadwal dan berkas yang perlu dibawa.'].join('\n');
+    window.location.href=`mailto:sdnlabbua5@gmail.com?subject=${encodeURIComponent('Pra-pendaftaran SPMB SD Negeri Labuhan Bua')}&body=${encodeURIComponent(message)}`;
   });
 });
