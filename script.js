@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     ...Array.from({length:16},(_,i)=>({src:`images/archive/imtaq/imtaq-${String(i+1).padStart(2,'0')}.jpg`,category:'imtaq',label:'Kegiatan IMTAQ',caption:`Kegiatan IMTAQ bersama siswa dan guru — foto ${i+1}`})),
     {src:'images/archive/facebook-all/archive-060.jpg',category:'budaya',label:'Hari Batik Nasional',caption:'Peringatan Hari Batik Nasional'},
     {src:'images/archive/facebook-all/archive-061.jpg',category:'upacara',label:'Kesaktian Pancasila',caption:'Peringatan Hari Kesaktian Pancasila'},
-    {src:'images/video-posters/mpls-awal.jpg',category:'siswa-baru',label:'MPLS siswa baru',caption:'Pengenalan kebiasaan hidup bersih kepada siswa baru Kelas 1'},
-    {src:'images/video-posters/mpls-hari-terakhir.jpg',category:'siswa-baru',label:'MPLS Kelas 1',caption:'Penyusunan kesepakatan kelas bersama siswa baru'}
+    ...['hari-2','hari-3','hari-4','hari-terakhir'].flatMap((day,dayIndex)=>Array.from({length:5},(_,i)=>({
+      src:`images/archive/siswa-baru/${day}-${String(i+1).padStart(2,'0')}.jpg`,category:'siswa-baru',label:`MPLS ${day.replace('hari-','Hari ')}`,caption:`Kegiatan siswa baru Kelas 1 pada rangkaian MPLS ${['hari kedua','hari ketiga','hari keempat','hari terakhir'][dayIndex]} — foto ${i+1}`
+    })))
   ];
   archives.forEach(item=>{
     const button=document.createElement('button');
